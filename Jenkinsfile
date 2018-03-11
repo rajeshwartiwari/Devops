@@ -2,8 +2,18 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'Build started'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Build started'
+          }
+        }
+        stage('') {
+          steps {
+            readFile 'src/main/java/sample/logic/Calculator.java'
+            readFile 'src/main/java/sample/logic/Calculator.java'
+          }
+        }
       }
     }
     stage('verify') {
